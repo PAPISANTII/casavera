@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Casa Vera — Habitaciones para estudiantes universitarios y Erasmus en Cartagena, Murcia. Totalmente equipadas, servicios incluidos, a 12 minutos de la UPCT." />
+  <meta name="robots" content="index, follow" />
+  <title>Casa Vera | Habitaciones para Estudiantes en Cartagena</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- JS config (preload) -->
+  <script src="js/config.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+      <!-- NAVEGACIÓN -->
+  <header class="cabecera" id="cabecera">
+    <div class="cabecera__contenedor">
+
+      <a href="index.html" class="cabecera__logo">
+        <img src="img/logo.svg" alt="Casa Vera logo" />
+      </a>
+
+      <!-- Menú escritorio -->
+    <nav class="cabecera__menu" id="menu-principal">
+    <ul class="menu__lista">
+      <li><a href="index.html">Inicio</a></li>
+      <li class="menu__desplegable">
+        <a href="habitaciones.html">Habitaciones
+        <span class="desplegable__flecha">▾</span>
+        </a>
+        <ul class="desplegable__lista">
+          <li><a href="habitacion-individual-balcon-banio-interior.html">Individual con balcón y baño interior</a></li>
+          <li><a href="habitacion-individual-banio-interior.html">Individual con baño interior</a></li>
+          <li><a href="habitacion-individual-balcon-banio-exterior.html">Individual con balcón y baño exterior</a></li>
+          <li><a href="habitacion-individual-banio-exterior.html">Individual con baño exterior</a></li>
+          <li><a href="habitacion-doble-banio-interior.html">Doble con baño interior</a></li>
+          <li><a href="habitacion-doble-balcon-banio-exterior.html">Doble con balcón y baño exterior</a></li>
+        </ul>
+      </li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="ubicacion.html">Ubicación</a></li>
+    </ul>
+    </nav>
+    
+      <!-- Botón CTA -->
+      <a href="contacto.html" class="btn btn--primario cabecera__cta">Contactar</a>
+
+      <!-- Hamburguesa móvil -->
+      <button class="cabecera__hamburguesa" id="boton-menu" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero hero--pequeno hero--ubicacion">
+      <div class="hero__fondo">
+        <img src="img/puerto.jpg" alt="Puerto de Cartagena visto desde Paseo Delicias" class="hero__imagen" />
+        <div class="hero__overlay"></div>
+      </div>
+      <div class="hero__contenido">
+        <p class="hero__subtitulo">Dónde estamos</p>
+        <h1 class="hero__titulo">En el corazón de Cartagena</h1>
+        <p class="hero__descripcion">Junto al puerto histórico, a minutos a pie de la universidad y con parada de bus en la puerta.</p>
+      </div>
+    </section>
+
+    <!-- MAPA + INFO -->
+    <section class="ubicacion__mapa-seccion">
+      <div class="ubicacion__grid">
+
+        <div class="ubicacion__info">
+          <h2 class="ubicacion__titulo">Paseo Delicias 23</h2>
+          <p class="ubicacion__cp">30202 Cartagena, Murcia</p>
+          <p class="ubicacion__descripcion">
+            Casa Vera se encuentra en el Paseo de las Delicias, una de las calles más tranquilas y bien comunicadas de Cartagena, a escasos metros del puerto histórico y del centro de la ciudad. Una ubicación ideal para estudiantes que quieren vivir cerca de todo sin renunciar a la calma.
+          </p>
+
+          <ul class="ubicacion__distancias">
+            <li>
+              <span class="distancia__icono">🎓</span>
+              <div>
+                <strong>UPCT — Campus Muralla del Mar</strong>
+                <span>~10 min a pie</span>
+              </div>
+            </li>
+            <li>
+              <span class="distancia__icono">🎓</span>
+              <div>
+                <strong>UCAM</strong>
+                <span>~1 min a pie una parada que te lleva directamente a la universidad</span>
+              </div>
+            </li>
+            <li>
+              <span class="distancia__icono">⚓</span>
+              <div>
+                <strong>Puerto de Cartagena</strong>
+                <span>~2 min a pie</span>
+              </div>
+            </li>
+            <li>
+              <span class="distancia__icono">🏛️</span>
+              <div>
+                <strong>Centro histórico</strong>
+                <span>~5 min a pie</span>
+              </div>
+            </li>
+            <li>
+              <span class="distancia__icono">🚌</span>
+              <div>
+                <strong>Parada de bus — Paseo Delicias</strong>
+                <span>A 1 min a pie (líneas 5, 7, 9, 14, 18 y más)</span>
+              </div>
+            </li>
+            <li>
+              <span class="distancia__icono">🚉</span>
+              <div>
+                <strong>Estación de autobuses</strong>
+                <span>~8 min a pie</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Mapa -->
+        <div class="ubicacion__mapa">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.0462946715957!2d-0.9767959235449442!3d37.59964697203008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd634184e4946d53%3A0x767a98b95aea4f59!2sP.%C2%BA%20Delicias%2C%2023%2C%2030202%20Cartagena%2C%20Murcia!5e1!3m2!1ses!2ses!4v1776018971540!5m2!1ses!2ses" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSPORTE -->
+    <section class="transporte">
+      <div class="transporte__contenedor">
+
+        <div class="transporte__encabezado">
+          <h2 class="transporte__titulo">Cómo llegar</h2>
+          <p class="transporte__subtexto">Bien conectado con toda la ciudad y con las universidades</p>
+        </div>
+
+        <div class="transporte__grid">
+
+          <div class="transporte__tarjeta">
+            <div class="transporte__icono">🚌</div>
+            <h3>Autobús urbano</h3>
+            <p>La parada <strong>Paseo Delicias</strong> está a 1 minuto a pie. Pasan las líneas <strong>5, 7, 9, 14 y 18</strong> entre otras, con conexión directa al centro y a los campus universitarios.</p>
+            <p class="transporte__destacado">La <strong>Línea Universidades</strong> conecta el puerto con la UPCT y la UCAM cada 30 minutos, de lunes a viernes durante el curso académico.</p>
+          </div>
+
+          <div class="transporte__tarjeta">
+            <div class="transporte__icono">🚉</div>
+            <h3>Tren y autobús interurbano</h3>
+            <p>La <strong>Estación de Autobuses de Cartagena</strong> está a solo 8 minutos a pie, con conexiones a Murcia, Madrid, Valencia y toda la región.</p>
+            <p>La estación de <strong>Renfe Cartagena</strong> también se encuentra a menos de 15 minutos caminando.</p>
+          </div>
+
+          <div class="transporte__tarjeta">
+            <div class="transporte__icono">🚗</div>
+            <h3>En coche</h3>
+            <p>Acceso directo desde la <strong>Autovía del Mediterráneo (A-30)</strong>. Aparcamiento público disponible en los alrededores del Paseo de las Delicias y el puerto.</p>
+          </div>
+
+          <div class="transporte__tarjeta">
+            <div class="transporte__icono">🚶</div>
+            <h3>A pie o en bici</h3>
+            <p>El centro histórico, el mercado, supermercados y la zona universitaria están todos a distancia caminable. Cartagena es una ciudad compacta y perfecta para moverse sin coche.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-ubicacion">
+      <div class="cta-ubicacion__bloque">
+        <h2 class="cta-ubicacion__titulo">¿Te convence la ubicación?</h2>
+        <p class="cta-ubicacion__texto">Escríbenos y te contamos todo sobre disponibilidad y condiciones. Sin compromiso.</p>
+        <div class="cta-ubicacion__botones">
+          <a href="contacto.html" class="btn btn--primario">Contactar ahora</a>
+          <a href="habitaciones.html" class="btn btn--secundario">Ver todas las habitaciones</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+    <!-- FOOTER -->
+  <footer class="pie-pagina">
+    <div class="pie-pagina__contenedor">
+
+      <div class="pie-pagina__columna">
+        <a href="index.html" class="pie-pagina__logo">
+          <img src="img/logo.svg" alt="Casa Vera logo" />
+        </a>
+        <p class="pie-pagina__descripcion">
+          Habitaciones para estudiantes universitarios y Erasmus en Cartagena, Murcia.
+        </p>
+      </div>
+
+      <div class="pie-pagina__columna">
+        <h3 class="pie-pagina__titulo-columna">Navegación</h3>
+        <ul class="pie-pagina__lista">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="habitaciones.html">Habitaciones</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="ubicacion.html">Ubicación</a></li>
+          <li><a href="faq.html">Preguntas Frecuentes</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="pie-pagina__columna">
+        <h3 class="pie-pagina__titulo-columna">Contacto</h3>
+        <ul class="pie-pagina__lista">
+          <li>📍 Paseo Delicias 23, 30202 Cartagena</li>
+          <li>✉️ <a href="mailto:info@casaveraestudiantes.es">info@casaveraestudiantes.es</a></li>
+        </ul>
+      </div>
+
+      <div class="pie-pagina__columna">
+        <h3 class="pie-pagina__titulo-columna">Legal</h3>
+        <ul class="pie-pagina__lista">
+          <li><a href="legal/privacidad.html">Política de Privacidad</a></li>
+          <li><a href="legal/aviso-legal.html">Aviso Legal</a></li>
+          <li><a href="legal/cookies.html">Política de Cookies</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="pie-pagina__inferior">
+      <p>© 2026 Casa Vera — Todos los derechos reservados</p>
+    </div>
+
+  </footer>
+
+</body>
+</html>

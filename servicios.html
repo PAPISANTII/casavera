@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Casa Vera — Habitaciones para estudiantes universitarios y Erasmus en Cartagena, Murcia. Totalmente equipadas, servicios incluidos, a 12 minutos de la UPCT." />
+  <meta name="robots" content="index, follow" />
+  <title>Casa Vera | Habitaciones para Estudiantes en Cartagena</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- JS config (preload) -->
+  <script src="js/config.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+      <!-- NAVEGACIÓN -->
+  <header class="cabecera" id="cabecera">
+    <div class="cabecera__contenedor">
+
+      <a href="index.html" class="cabecera__logo">
+        <img src="img/logo.svg" alt="Casa Vera logo" />
+      </a>
+
+      <!-- Menú escritorio -->
+    <nav class="cabecera__menu" id="menu-principal">
+    <ul class="menu__lista">
+      <li><a href="index.html">Inicio</a></li>
+      <li class="menu__desplegable">
+        <a href="habitaciones.html">Habitaciones
+        <span class="desplegable__flecha">▾</span>
+        </a>
+        <ul class="desplegable__lista">
+          <li><a href="habitacion-individual-balcon-banio-interior.html">Individual con balcón y baño interior</a></li>
+          <li><a href="habitacion-individual-banio-interior.html">Individual con baño interior</a></li>
+          <li><a href="habitacion-individual-balcon-banio-exterior.html">Individual con balcón y baño exterior</a></li>
+          <li><a href="habitacion-individual-banio-exterior.html">Individual con baño exterior</a></li>
+          <li><a href="habitacion-doble-banio-interior.html">Doble con baño interior</a></li>
+          <li><a href="habitacion-doble-balcon-banio-exterior.html">Doble con balcón y baño exterior</a></li>
+        </ul>
+      </li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="ubicacion.html">Ubicación</a></li>
+    </ul>
+    </nav>
+    
+      <!-- Botón CTA -->
+      <a href="contacto.html" class="btn btn--primario cabecera__cta">Contactar</a>
+
+      <!-- Hamburguesa móvil -->
+      <button class="cabecera__hamburguesa" id="boton-menu" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero hero--pequeno hero--servicios">
+      <div class="hero__fondo">
+        <img src="img/zonascomunes.webp" alt="Zonas comunes de Casa Vera" class="hero__imagen" />
+        <div class="hero__overlay"></div>
+      </div>
+      <div class="hero__contenido">
+        <p class="hero__subtitulo">Todo incluido</p>
+        <h1 class="hero__titulo">Servicios y zonas comunes</h1>
+        <p class="hero__descripcion">Todo lo que necesitas para vivir cómodo, sin sorpresas en la factura.</p>
+      </div>
+    </section>
+
+    <!-- SERVICIOS INCLUIDOS -->
+    <section class="servicios-incluidos">
+      <div class="servicios-incluidos__contenedor">
+
+        <div class="servicios-incluidos__encabezado">
+          <p class="etiqueta">Incluido en el precio</p>
+          <h2 class="servicios-incluidos__titulo">Sin letra pequeña</h2>
+          <p class="servicios-incluidos__subtexto">Estos servicios están incluidos en el precio mensual de tu habitación. Sin costes ocultos ni facturas inesperadas.</p>
+        </div>
+
+        <div class="servicios-incluidos__grid">
+
+          <div class="servicio-card">
+            <div class="servicio-card__icono">📶</div>
+            <h3 class="servicio-card__nombre">Internet de alta velocidad</h3>
+            <p class="servicio-card__descripcion">Conexión por cable en tu habitación para estudiar, trabajar o disfrutar sin interrupciones.</p>
+          </div>
+
+          <div class="servicio-card">
+            <div class="servicio-card__icono">❄️</div>
+            <h3 class="servicio-card__nombre">Aire acondicionado</h3>
+            <p class="servicio-card__descripcion">Sistema de frío y calor en la habitación. Temperatura perfecta en verano y en invierno.</p>
+          </div>
+
+          <div class="servicio-card">
+            <div class="servicio-card__icono">💧</div>
+            <h3 class="servicio-card__nombre">Agua incluida</h3>
+            <p class="servicio-card__descripcion">El consumo de agua está completamente cubierto. Sin límites ni cargos adicionales.</p>
+          </div>
+
+          <div class="servicio-card">
+            <div class="servicio-card__icono">⚡</div>
+            <h3 class="servicio-card__nombre">Electricidad hasta 100 kWh/mes</h3>
+            <p class="servicio-card__descripcion">El consumo eléctrico está incluido hasta 100 kWh mensuales, más que suficiente para el uso habitual de una habitación.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ZONAS COMUNES -->
+    <section class="zonas-comunes">
+      <div class="zonas-comunes__contenedor">
+
+        <div class="zonas-comunes__encabezado">
+          <p class="etiqueta">Espacios compartidos</p>
+          <h2 class="zonas-comunes__titulo">Zonas comunes</h2>
+          <p class="zonas-comunes__subtexto">Espacios diseñados para que te sientas como en casa.</p>
+        </div>
+
+        <!-- Azotea -->
+        <div class="zona-bloque zona-bloque--imagen-derecha">
+          <div class="zona-bloque__texto">
+            <h3 class="zona-bloque__titulo">Azotea</h3>
+            <p class="zona-bloque__descripcion">Disfruta de las vistas de Cartagena desde nuestra azotea. Un espacio al aire libre perfecto para desconectar, tomar el sol o simplemente respirar después de un día de estudio.</p>
+          </div>
+          <div class="zona-bloque__imagen">
+            <img src="img/azotea.webp" alt="Azotea de Casa Vera con vistas a Cartagena" />
+          </div>
+        </div>
+
+        <!-- Cocina y área común -->
+        <div class="zona-bloque zona-bloque--imagen-izquierda">
+          <div class="zona-bloque__imagen">
+            <img src="img/cocina.webp" alt="Cocina y zona de descanso común de Casa Vera" />
+          </div>
+          <div class="zona-bloque__texto">
+            <h3 class="zona-bloque__titulo">Cocina y área común</h3>
+            <p class="zona-bloque__descripcion">La cocina compartida está integrada con la zona de descanso, creando un espacio amplio donde cocinar, comer y relacionarte con el resto de residentes. Equipada con todo lo necesario para el día a día.</p>
+          </div>
+        </div>
+
+        <!-- Lavandería -->
+        <div class="zona-bloque zona-bloque--imagen-derecha">
+          <div class="zona-bloque__texto">
+            <h3 class="zona-bloque__titulo">Lavandería</h3>
+            <p class="zona-bloque__descripcion">Lavadoras y secadoras disponibles para todos los residentes. Sin necesidad de salir a buscar una lavandería en la ciudad.</p>
+          </div>
+          <div class="zona-bloque__imagen">
+            <img src="img/lavanderia.jpg" alt="Lavandería de Casa Vera con lavadoras y secadoras" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-servicios">
+      <div class="cta-servicios__bloque">
+        <h2 class="cta-servicios__titulo">¿Todo lo que buscabas?</h2>
+        <p class="cta-servicios__texto">Escríbenos y te contamos todo sobre disponibilidad y condiciones. Sin compromiso.</p>
+        <div class="cta-servicios__botones">
+          <a href="contacto.html" class="btn btn--primario">Contactar ahora</a>
+          <a href="habitaciones.html" class="btn btn--secundario">Ver todas las habitaciones</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+    <!-- FOOTER -->
+  <footer class="pie-pagina">
+    <div class="pie-pagina__contenedor">
+
+      <div class="pie-pagina__columna">
+        <a href="index.html" class="pie-pagina__logo">
+          <img src="img/logo.svg" alt="Casa Vera logo" />
+        </a>
+        <p class="pie-pagina__descripcion">
+          Habitaciones para estudiantes universitarios y Erasmus en Cartagena, Murcia.
+        </p>
+      </div>
+
+      <div class="pie-pagina__columna">
+        <h3 class="pie-pagina__titulo-columna">Navegación</h3>
+        <ul class="pie-pagina__lista">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="habitaciones.html">Habitaciones</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="ubicacion.html">Ubicación</a></li>
+          <li><a href="faq.html">Preguntas Frecuentes</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="pie-pagina__columna">
+        <h3 class="pie-pagina__titulo-columna">Contacto</h3>
+        <ul class="pie-pagina__lista">
+          <li>📍 Paseo Delicias 23, 30202 Cartagena</li>
+          <li>✉️ <a href="mailto:info@casaveraestudiantes.es">info@casaveraestudiantes.es</a></li>
+        </ul>
+      </div>
+
+      <div class="pie-pagina__columna">
+        <h3 class="pie-pagina__titulo-columna">Legal</h3>
+        <ul class="pie-pagina__lista">
+          <li><a href="legal/privacidad.html">Política de Privacidad</a></li>
+          <li><a href="legal/aviso-legal.html">Aviso Legal</a></li>
+          <li><a href="legal/cookies.html">Política de Cookies</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="pie-pagina__inferior">
+      <p>© 2026 Casa Vera — Todos los derechos reservados</p>
+    </div>
+
+  </footer>
+
+</body>
+</html>

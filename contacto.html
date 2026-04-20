@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Casa Vera — Habitaciones para estudiantes universitarios y Erasmus en Cartagena, Murcia. Totalmente equipadas, servicios incluidos, a 12 minutos de la UPCT." />
+  <meta name="robots" content="index, follow" />
+  <title>Casa Vera | Habitaciones para Estudiantes en Cartagena</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- JS config (preload) -->
+  <script src="js/config.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+      <!-- NAVEGACIÓN -->
+  <header class="cabecera" id="cabecera">
+    <div class="cabecera__contenedor">
+
+      <a href="index.html" class="cabecera__logo">
+        <img src="img/logo.svg" alt="Casa Vera logo" />
+      </a>
+
+      <!-- Menú escritorio -->
+    <nav class="cabecera__menu" id="menu-principal">
+    <ul class="menu__lista">
+      <li><a href="index.html">Inicio</a></li>
+      <li class="menu__desplegable">
+        <a href="habitaciones.html">Habitaciones
+        <span class="desplegable__flecha">▾</span>
+        </a>
+        <ul class="desplegable__lista">
+          <li><a href="habitacion-individual-balcon-banio-interior.html">Individual con balcón y baño interior</a></li>
+          <li><a href="habitacion-individual-banio-interior.html">Individual con baño interior</a></li>
+          <li><a href="habitacion-individual-balcon-banio-exterior.html">Individual con balcón y baño exterior</a></li>
+          <li><a href="habitacion-individual-banio-exterior.html">Individual con baño exterior</a></li>
+          <li><a href="habitacion-doble-banio-interior.html">Doble con baño interior</a></li>
+          <li><a href="habitacion-doble-balcon-banio-exterior.html">Doble con balcón y baño exterior</a></li>
+        </ul>
+      </li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="ubicacion.html">Ubicación</a></li>
+    </ul>
+    </nav>
+    
+      <!-- Botón CTA -->
+      <a href="contacto.html" class="btn btn--primario cabecera__cta">Contactar</a>
+
+      <!-- Hamburguesa móvil -->
+      <button class="cabecera__hamburguesa" id="boton-menu" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero hero--pequeno hero--contacto">
+      <div class="hero__fondo">
+        <img src="img/techos.webp" alt="Contacta con Casa Vera" class="hero__imagen" />
+        <div class="hero__overlay"></div>
+      </div>
+      <div class="hero__contenido">
+        <p class="hero__subtitulo">Estamos aquí</p>
+        <h1 class="hero__titulo">Escríbenos</h1>
+        <p class="hero__descripcion">Cuéntanos qué habitación te interesa y te respondemos cuanto antes.</p>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto">
+      <div class="contacto__contenedor">
+
+        <!-- Formulario -->
+        <div class="contacto__formulario-wrapper">
+          <p class="etiqueta">Formulario de contacto</p>
+          <h2 class="contacto__titulo">¿Tienes alguna pregunta?</h2>
+          <p class="contacto__subtexto">Rellena el formulario y te contestamos en menos de 24 horas.</p>
+
+          <form class="formulario" id="formulario-contacto" action="https://formspree.io/f/XXXXXXXX" method="POST" novalidate>
+
+            <div class="formulario__grupo">
+            <label class="formulario__etiqueta" for="nombre">Nombre completo *</label>
+              <input
+                class="formulario__input"
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="email">Correo electrónico *</label>
+              <input
+                class="formulario__input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="tucorreo@email.com"
+                required
+              />
+            </div>
+
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="telefono">Teléfono (opcional)</label>
+              <input
+                class="formulario__input"
+                type="tel"
+                id="telefono"
+                name="telefono"
+                placeholder="+34 000 000 000"
+              />
+            </div>
+
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="habitacion">Habitación de interés</label>
+              <select class="formulario__input formulario__select" id="habitacion" name="habitacion">
+                <option value="">— Selecciona una opción —</option>
+                <option value="individual-balcon-banio-interior">Individual con balcón y baño interior</option>
+                <option value="individual-banio-interior">Individual con baño interior</option>
+                <option value="individual-balcon-banio-exterior">Individual con balcón y baño exterior</option>
+                <option value="individual-banio-exterior">Individual con baño exterior</option>
+                <option value="doble-banio-interior">Doble con baño interior</option>
+                <option value="doble-balcon-banio-exterior">Doble con balcón y baño exterior</option>
+                <option value="sin-decidir">Aún no lo sé</option>
+              </select>
+            </div>
+
+            <div class="formulario__grupo">
+              <label class="formulario__etiqueta" for="mensaje">Mensaje *</label>
+              <textarea
+                class="formulario__input formulario__textarea"
+                id="mensaje"
+                name="mensaje"
+                placeholder="Cuéntanos lo que necesitas saber..."
+                rows="5"
+                required
+              ></textarea>
+            </div>
+
+            <div class="formulario__grupo formulario__grupo--check">
+              <input type="checkbox" id="privacidad" name="privacidad" required />
+              <label for="privacidad" class="formulario__etiqueta-check">
+                He leído y acepto la <a href="legal/privacidad.html">Política de Privacidad</a>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn--primario formulario__boton">Enviar mensaje</button>
+
+          </form>
+        </div>
+
+        <!-- Info lateral -->
+        <aside class="contacto__info">
+
+          <div class="contacto__info-bloque">
+            <div class="contacto__info-icono">📍</div>
+            <div>
+              <h3 class="contacto__info-titulo">Dirección</h3>
+              <p class="contacto__info-texto">Paseo Delicias 23<br />30202 Cartagena, Murcia</p>
+            </div>
+          </div>
+
+          <div class="contacto__info-bloque">
+            <div class="contacto__info-icono">✉️</div>
+            <div>
+              <h3 class="contacto__info-titulo">Email</h3>
+              <p class="contacto__info-texto">
+                <a href="mailto:info@casaveraestudiantes.es">info@casaveraestudiantes.es</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="contacto__info-bloque">
+            <div class="contacto__info-icono">🕐</div>
+            <div>
+              <h3 class="contacto__info-titulo">Tiempo de respuesta</h3>
+              <p class="contacto__info-texto">Respondemos en menos de 24 horas en días laborables.</p>
+            </div>
+          </div>
+
+          <div class="contacto__aviso">
+            <p>¿Prefieres ver primero las habitaciones?</p>
+            <a href="habitaciones.html" class="btn btn--secundario">Ver habitaciones</a>
+          </div>
+
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+    <!-- FOOTER -->
+  <footer class="pie-pagina">
+    <div class="pie-pagina__contenedor">
+
+      <div class="pie-pagina__columna">
+        <a href="index.html" class="pie-pagina__logo">
+          <img src="img/logo.svg" alt="Casa Vera logo" />
+        </a>
+        <p class="pie-pagina__descripcion">
+          Habitaciones para estudiantes universitarios y Erasmus en Cartagena, Murcia.
+        </p>
+      </div>
+
+      <div class="pie-pagina__columna">
+        <h3 class="pie-pagina__titulo-columna">Navegación</h3>
+        <ul class="pie-pagina__lista">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="habitaciones.html">Habitaciones</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="ubicacion.html">Ubicación</a></li>
+          <li><a href="faq.html">Preguntas Frecuentes</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="pie-pagina__columna">
+        <h3 class="pie-pagina__titulo-columna">Contacto</h3>
+        <ul class="pie-pagina__lista">
+          <li>📍 Paseo Delicias 23, 30202 Cartagena</li>
+          <li>✉️ <a href="mailto:info@casaveraestudiantes.es">info@casaveraestudiantes.es</a></li>
+        </ul>
+      </div>
+
+      <div class="pie-pagina__columna">
+        <h3 class="pie-pagina__titulo-columna">Legal</h3>
+        <ul class="pie-pagina__lista">
+          <li><a href="legal/privacidad.html">Política de Privacidad</a></li>
+          <li><a href="legal/aviso-legal.html">Aviso Legal</a></li>
+          <li><a href="legal/cookies.html">Política de Cookies</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="pie-pagina__inferior">
+      <p>© 2026 Casa Vera — Todos los derechos reservados</p>
+    </div>
+
+  </footer>
+</body>
+</html>

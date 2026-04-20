@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Habitaciones para estudiantes universitarios y Erasmus en Cartagena. Individuales y dobles, totalmente equipadas, servicios incluidos. A 12 minutos de la UPCT." />
+  <meta name="robots" content="index, follow" />
+  <title>Habitaciones para Estudiantes en Cartagena | Casa Vera</title>
+
+    <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- JS config (preload) -->
+  <script src="js/config.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+      <!-- NAVEGACIÓN -->
+  <header class="cabecera" id="cabecera">
+    <div class="cabecera__contenedor">
+
+      <a href="index.html" class="cabecera__logo">
+        <img src="img/logo.svg" alt="Casa Vera logo" />
+      </a>
+
+      <!-- Menú escritorio -->
+    <nav class="cabecera__menu" id="menu-principal">
+    <ul class="menu__lista">
+      <li><a href="index.html">Inicio</a></li>
+      <li class="menu__desplegable">
+        <a href="habitaciones.html">Habitaciones
+        <span class="desplegable__flecha">▾</span>
+        </a>
+        <ul class="desplegable__lista">
+          <li><a href="habitacion-individual-balcon-banio-interior.html">Individual con balcón y baño interior</a></li>
+          <li><a href="habitacion-individual-banio-interior.html">Individual con baño interior</a></li>
+          <li><a href="habitacion-individual-balcon-banio-exterior.html">Individual con balcón y baño exterior</a></li>
+          <li><a href="habitacion-individual-banio-exterior.html">Individual con baño exterior</a></li>
+          <li><a href="habitacion-doble-banio-interior.html">Doble con baño interior</a></li>
+          <li><a href="habitacion-doble-balcon-banio-exterior.html">Doble con balcón y baño exterior</a></li>
+        </ul>
+      </li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="ubicacion.html">Ubicación</a></li>
+    </ul>
+    </nav>
+    
+      <!-- Botón CTA -->
+      <a href="contacto.html" class="btn btn--primario cabecera__cta">Contactar</a>
+
+      <!-- Hamburguesa móvil -->
+      <button class="cabecera__hamburguesa" id="boton-menu" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero hero--pequeno" id="inicio">
+    <div class="hero__fondo">
+      <img src="img/hero.webp" alt="Habitaciones para estudiantes en Cartagena — Casa Vera" class="hero__imagen" />
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__contenido">
+      <p class="hero__subtitulo">Casa Vera · Cartagena</p>
+      <h1 class="hero__titulo">Nuestras habitaciones</h1>
+      <p class="hero__descripcion">
+        Encuentra tu habitación ideal en Cartagena. Todas equipadas, 
+        con servicios incluidos y a 12 minutos de la UPCT.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTRO SEO -->
+  <section class="pagina-intro">
+    <div class="pagina-intro__contenedor">
+      <p class="etiqueta">Alojamiento en Cartagena</p>
+      <h2 class="pagina-intro__titulo">Encuentra tu habitación ideal en Cartagena</h2>
+      <p class="pagina-intro__texto">
+        En Casa Vera disponemos de distintos tipos de habitaciones de alquiler para 
+        estudiantes universitarios y Erasmus en Cartagena. Todas completamente equipadas, 
+        con servicios incluidos y a tan solo 12 minutos a pie de la UPCT. Podrás disfrutar 
+        también de zonas comunes: cocina equipada y área de descanso.
+      </p>
+    </div>
+  </section>
+
+  <!-- HABITACIONES INDIVIDUALES -->
+  <section class="seccion-habitaciones" id="individual">
+    <div class="seccion-habitaciones__contenedor">
+
+      <div class="seccion-habitaciones__encabezado">
+        <p class="etiqueta">Habitaciones individuales</p>
+        <h2 class="seccion-habitaciones__titulo">Individual</h2>
+        <p class="seccion-habitaciones__subtexto">
+          Habitación privada para un estudiante. Todas con baño privado y servicios incluidos.
+        </p>
+      </div>
+
+      <div class="habitaciones__grid habitaciones__grid--dos">
+
+        <article class="tarjeta-habitacion">
+          <div class="tarjeta-habitacion__imagen">
+            <img src="img/individual-balcon-banio-interior.webp" alt="Habitación individual con balcón y baño interior en Cartagena" />
+            <div class="tarjeta-habitacion__overlay"></div>
+          </div>
+          <div class="tarjeta-habitacion__contenido">
+            <h3 class="tarjeta-habitacion__nombre">Individual con balcón y baño interior</h3>
+            <p class="tarjeta-habitacion__precio"><span data-precio="individual_balcon_banio_interior"></span></p>
+            <p class="tarjeta-habitacion__descripcion">Balcón privado y baño interior. La opción más completa para tu estancia.</p>
+            <a href="habitacion-individual-balcon-banio-interior.html" class="btn btn--secundario">Ver habitación</a>
+          </div>
+        </article>
+
+        <article class="tarjeta-habitacion">
+          <div class="tarjeta-habitacion__imagen">
+            <img src="img/individual-banio-interior.webp" alt="Habitación individual con baño interior en Cartagena" />
+            <div class="tarjeta-habitacion__overlay"></div>
+          </div>
+          <div class="tarjeta-habitacion__contenido">
+            <h3 class="tarjeta-habitacion__nombre">Individual con baño interior</h3>
+            <p class="tarjeta-habitacion__precio"><span data-precio="individual_sin_balcon_banio_interior"></span></p>
+            <p class="tarjeta-habitacion__descripcion">Baño interior privado y espacio optimizado con todo lo necesario.</p>
+            <a href="habitacion-individual-banio-interior.html" class="btn btn--secundario">Ver habitación</a>
+          </div>
+        </article>
+
+        <article class="tarjeta-habitacion">
+          <div class="tarjeta-habitacion__imagen">
+            <img src="img/hab3/hab2.webp" alt="Habitación individual con balcón y baño exterior privado en Cartagena" />
+            <div class="tarjeta-habitacion__overlay"></div>
+          </div>
+          <div class="tarjeta-habitacion__contenido">
+            <h3 class="tarjeta-habitacion__nombre">Individual con balcón y baño exterior</h3>
+            <p class="tarjeta-habitacion__precio"><span data-precio="individual_balcon_banio_exterior"></span></p>
+            <p class="tarjeta-habitacion__descripcion">Balcón privado y baño exterior privado. Luminosa y aireada.</p>
+            <a href="habitacion-individual-balcon-banio-exterior.html" class="btn btn--secundario">Ver habitación</a>
+          </div>
+        </article>
+
+        <article class="tarjeta-habitacion">
+          <div class="tarjeta-habitacion__imagen">
+            <img src="img/hab4/hab1.webp" alt="Habitación individual con baño exterior privado en Cartagena" />
+            <div class="tarjeta-habitacion__overlay"></div>
+          </div>
+          <div class="tarjeta-habitacion__contenido">
+            <h3 class="tarjeta-habitacion__nombre">Individual con baño exterior</h3>
+            <p class="tarjeta-habitacion__precio"><span data-precio="individual_sin_balcon_banio_exterior"></span></p>
+            <p class="tarjeta-habitacion__descripcion">Baño exterior privado. Práctica y económica, con todos los servicios incluidos.</p>
+            <a href="habitacion-individual-banio-exterior.html" class="btn btn--secundario">Ver habitación</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HABITACIONES DOBLES -->
+  <section class="seccion-habitaciones seccion-habitaciones--gris" id="doble">
+    <div class="seccion-habitaciones__contenedor">
+
+      <div class="seccion-habitaciones__encabezado">
+        <p class="etiqueta">Habitaciones dobles</p>
+        <h2 class="seccion-habitaciones__titulo">Doble</h2>
+        <p class="seccion-habitaciones__subtexto">
+          Amplia habitación para dos estudiantes. Todo duplicado y servicios incluidos.
+        </p>
+      </div>
+
+      <div class="habitaciones__grid habitaciones__grid--dos">
+
+        <article class="tarjeta-habitacion">
+          <div class="tarjeta-habitacion__imagen">
+            <img src="img/doble-banio-interior.webp" alt="Habitación doble con baño interior en Cartagena" />
+            <div class="tarjeta-habitacion__overlay"></div>
+          </div>
+          <div class="tarjeta-habitacion__contenido">
+            <h3 class="tarjeta-habitacion__nombre">Doble con baño interior</h3>
+            <p class="tarjeta-habitacion__precio"><span data-precio="doble_grande_banio_interior"></span></p>
+            <p class="tarjeta-habitacion__descripcion">Gran habitación doble con baño interior privado. Todo duplicado para dos estudiantes.</p>
+            <a href="habitacion-doble-banio-interior.html" class="btn btn--secundario">Ver habitación</a>
+          </div>
+        </article>
+
+        <article class="tarjeta-habitacion">
+          <div class="tarjeta-habitacion__imagen">
+            <img src="img/hab6/hab1.webp" alt="Habitación doble con balcón y baño exterior privado en Cartagena" />
+            <div class="tarjeta-habitacion__overlay"></div>
+          </div>
+          <div class="tarjeta-habitacion__contenido">
+            <h3 class="tarjeta-habitacion__nombre">Doble con balcón y baño exterior</h3>
+            <p class="tarjeta-habitacion__precio"><span data-precio="doble_balcon_banio_exterior"></span></p>
+            <p class="tarjeta-habitacion__descripcion">Habitación doble con balcón privado y baño exterior privado. Amplia y luminosa.</p>
+            <a href="habitacion-doble-balcon-banio-exterior.html" class="btn btn--secundario">Ver habitación</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="cta-final__contenedor">
+      <p class="etiqueta etiqueta--clara">¿Te interesa?</p>
+      <h2 class="cta-final__titulo">¿Tienes dudas sobre alguna habitación?</h2>
+      <p class="cta-final__descripcion">
+        Escríbenos y te contamos todo sobre disponibilidad, precios y condiciones. Sin compromiso.
+      </p>
+      <a href="contacto.html" class="btn btn--blanco">Contactar ahora</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="pie-pagina">
+    <div class="pie-pagina__contenedor">
+      <div class="pie-pagina__columna">
+        <a href="index.html" class="pie-pagina__logo">
+          <img src="img/logo.svg" alt="Casa Vera logo" />
+        </a>
+        <p class="pie-pagina__descripcion">
+          Habitaciones para estudiantes universitarios y Erasmus en Cartagena, Murcia.
+        </p>
+      </div>
+      <div class="pie-pagina__columna">
+        <h3 class="pie-pagina__titulo-columna">Navegación</h3>
+        <ul class="pie-pagina__lista">
+          <a href="index.html">Inicio</a></li>
+          <a href="habitaciones.html">Habitaciones</a></li>
+          <a href="servicios.html">Servicios</a></li>
+          <a href="ubicacion.html">Ubicación</a></li>
+          <a href="faq.html">Preguntas Frecuentes</a></li>
+          <a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="pie-pagina__columna">
+        <h3 class="pie-pagina__titulo-columna">Contacto</h3>
+        <ul class="pie-pagina__lista">
+          <li>📍 Paseo Delicias 23, 30202 Cartagena</li>
+          <li>✉️<a href="mailto:info@casaveraestudiantes.es">info@casaveraestudiantes.es</a></li>
+        </ul>
+      </div>
+      <div class="pie-pagina__columna">
+        <h3 class="pie-pagina__titulo-columna">Legal</h3>
+        <ul class="pie-pagina__lista">
+          <a href="legal/privacidad.html">Política de Privacidad</a></li>
+          <a href="legal/aviso-legal.html">Aviso Legal</a></li>
+          <a href="legal/cookies.html">Política de Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pie-pagina__inferior">
+      <p>© 2026 Casa Vera — Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Habitaciones para estudiantes universitarios y Erasmus en Cartagena. Individuales y dobles, totalmente equipadas, servicios incluidos. A 12 minutos de la UPCT." />
+  <meta name="robots" content="index, follow" />
+  <title>Habitaciones para Estudiantes en Cartagena | Casa Vera</title>
+
+    <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- JS config (preload) -->
+  <script src="js/config.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+      <!-- NAVEGACIÓN -->
+  <header class="cabecera" id="cabecera">
+    <div class="cabecera__contenedor">
+
+      <a href="index.html" class="cabecera__logo">
+        <img src="img/logo.svg" alt="Casa Vera logo" />
+      </a>
+
+      <!-- Menú escritorio -->
+    <nav class="cabecera__menu" id="menu-principal">
+    <ul class="menu__lista">
+      <li><a href="index.html">Inicio</a></li>
+      <li class="menu__desplegable">
+        <a href="habitaciones.html">Habitaciones
+        <span class="desplegable__flecha">▾</span>
+        </a>
+        <ul class="desplegable__lista">
+          <li><a href="habitacion-individual-balcon-banio-interior.html">Individual con balcón y baño interior</a></li>
+          <li><a href="habitacion-individual-banio-interior.html">Individual con baño interior</a></li>
+          <li><a href="habitacion-individual-balcon-banio-exterior.html">Individual con balcón y baño exterior</a></li>
+          <li><a href="habitacion-individual-banio-exterior.html">Individual con baño exterior</a></li>
+          <li><a href="habitacion-doble-banio-interior.html">Doble con baño interior</a></li>
+          <li><a href="habitacion-doble-balcon-banio-exterior.html">Doble con balcón y baño exterior</a></li>
+        </ul>
+      </li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="ubicacion.html">Ubicación</a></li>
+    </ul>
+    </nav>
+    
+      <!-- Botón CTA -->
+      <a href="contacto.html" class="btn btn--primario cabecera__cta">Contactar</a>
+
+      <!-- Hamburguesa móvil -->
+      <button class="cabecera__hamburguesa" id="boton-menu" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+  <section class="hero hero--pequeno">
+    <div class="hero__fondo">
+      <img src="img/hab4/hab2.webp" alt="Habitación individual con baño exterior privado — Casa Vera Cartagena" class="hero__imagen" />
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__contenido">
+      <p class="hero__subtitulo">Habitación individual</p>
+      <h1 class="hero__titulo">Individual con baño exterior</h1>
+      <p class="hero__precio-hero"><span data-precio="individual_sin_balcon_banio_exterior"></span></p>
+    </div>
+  </section>
+
+  <main class="habitacion-detalle">
+    <div class="habitacion-detalle__contenedor">
+
+      <section class="carrusel" id="galeria" aria-label="Galería de fotos">
+        <div class="carrusel__principal">
+          <div class="carrusel__slides" id="carrusel-slides">
+            <div class="carrusel__slide activo" data-tipo="imagen">
+              <img src="img/hab4/hab1.webp" alt="Vista general habitación individual con baño exterior" />
+            </div>
+            <div class="carrusel__slide" data-tipo="imagen">
+              <img src="img/hab4/hab2.webp" alt="Interior de la habitación" />
+            </div>
+            <div class="carrusel__slide" data-tipo="imagen">
+              <img src="img/hab4/banio.webp" alt="Baño exterior privado" />
+            </div>
+            <div class="carrusel__slide" data-tipo="video">
+              <div class="carrusel__video-wrapper">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Vídeo habitación individual con baño exterior" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+          <button class="carrusel__flecha carrusel__flecha--izq" id="flecha-izq" aria-label="Anterior">&#8249;</button>
+          <button class="carrusel__flecha carrusel__flecha--der" id="flecha-der" aria-label="Siguiente">&#8250;</button>
+        </div>
+        <div class="carrusel__miniaturas" id="carrusel-miniaturas">
+          <button class="carrusel__miniatura activo" data-indice="0" aria-label="Ver foto 1">
+            <img src="img/hab4/hab1.webp" alt="Miniatura 1" />
+          </button>
+          <button class="carrusel__miniatura" data-indice="1" aria-label="Ver foto 2">
+            <img src="img/hab4/hab2.webp" alt="Miniatura 2" />
+          </button>
+          <button class="carrusel__miniatura" data-indice="2" aria-label="Ver foto 3">
+            <img src="img/hab4/banio.webp" alt="Miniatura 3" />
+          </button>
+          <button class="carrusel__miniatura carrusel__miniatura--video" data-indice="3" aria-label="Ver vídeo">
+            <span class="carrusel__icono-play">▶</span>
+            <span>Vídeo</span>
+          </button>
+        </div>
+      </section>
+
+      <div class="habitacion-detalle__info">
+
+        <section class="habitacion-seccion">
+          <h2 class="habitacion-seccion__titulo">Descripción</h2>
+          <p class="habitacion-seccion__texto">
+            Habitación individual con baño exterior privado. La opción más económica de Casa Vera
+            sin renunciar a la privacidad. Baño de uso exclusivo situado fuera de la habitación,
+            espacio bien aprovechado y todos los servicios incluidos.
+          </p>
+          <p class="habitacion-seccion__texto">
+            Ubicada en Casa Vera, a 12 minutos caminando de la UPCT y con parada de autobús
+            directo a la UCAM a menos de 1 minuto.
+          </p>
+        </section>
+
+        <section class="habitacion-seccion">
+          <h2 class="habitacion-seccion__titulo">Mobiliario incluido</h2>
+          <ul class="habitacion-lista">
+            <li><span class="habitacion-lista__icono">✓</span> Cama individual 90x200 cm</li>
+            <li><span class="habitacion-lista__icono">✓</span> Armario de 2 puertas</li>
+            <li><span class="habitacion-lista__icono">✓</span> Escritorio de estudio</li>
+            <li><span class="habitacion-lista__icono">✓</span> Silla de escritorio</li>
+            <li><span class="habitacion-lista__icono">✓</span> Mesita de noche</li>
+            <li><span class="habitacion-lista__icono">✓</span> Lámpara de escritorio</li>
+            <li><span class="habitacion-lista__icono">✓</span> Lámpara de noche</li>
+          </ul>
+        </section>
+
+        <section class="habitacion-seccion">
+          <h2 class="habitacion-seccion__titulo">Servicios incluidos</h2>
+          <ul class="habitacion-lista">
+            <li><span class="habitacion-lista__icono">✓</span> Internet de alta velocidad por cable</li>
+            <li><span class="habitacion-lista__icono">✓</span> Aire acondicionado (frío y calor)</li>
+            <li><span class="habitacion-lista__icono">✓</span> Agua incluida</li>
+            <li><span class="habitacion-lista__icono">✓</span> Electricidad hasta 100 kWh/mes</li>
+            <li><span class="habitacion-lista__icono">✓</span> Acceso a cocina equipada compartida</li>
+            <li><span class="habitacion-lista__icono">✓</span> Acceso a zona de descanso común</li>
+          </ul>
+        </section>
+
+        <section class="habitacion-seccion">
+          <h2 class="habitacion-seccion__titulo">Condiciones del alquiler</h2>
+          <ul class="habitacion-lista">
+            <li><span class="habitacion-lista__icono">→</span> Precio mensual: <strong><span data-precio="individual_sin_balcon_banio_exterior"></span></strong></li>
+            <li><span class="habitacion-lista__icono">→</span> Fianza: <strong><span data-fianza="individual_sin_balcon_banio_exterior"></span></strong></li>
+            <li><span class="habitacion-lista__icono">→</span> Contrato mínimo: <strong>4 meses</strong></li>
+            <li><span class="habitacion-lista__icono">→</span> Pago mensual por transferencia bancaria</li>
+            <li><span class="habitacion-lista__icono">→</span> Aceptamos estudiantes Erasmus sin NIE</li>
+          </ul>
+        </section>
+
+        <section class="habitacion-cta">
+          <h2 class="habitacion-cta__titulo">¿Te interesa esta habitación?</h2>
+          <p class="habitacion-cta__texto">Escríbenos y te contamos todo sobre disponibilidad y condiciones. Sin compromiso.</p>
+          <div class="habitacion-cta__botones">
+            <a href="contacto.html" class="btn btn--primario">Contactar ahora</a>
+            <a href="habitaciones.html" class="btn btn--secundario">Ver todas las habitaciones</a>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+    <!-- FOOTER -->
+  <footer class="pie-pagina">
+    <div class="pie-pagina__contenedor">
+
+      <div class="pie-pagina__columna">
+        <a href="index.html" class="pie-pagina__logo">
+          <img src="img/logo.svg" alt="Casa Vera logo" />
+        </a>
+        <p class="pie-pagina__descripcion">
+          Habitaciones para estudiantes universitarios y Erasmus en Cartagena, Murcia.
+        </p>
+      </div>
+
+      <div class="pie-pagina__columna">
+        <h3 class="pie-pagina__titulo-columna">Navegación</h3>
+        <ul class="pie-pagina__lista">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="habitaciones.html">Habitaciones</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="ubicacion.html">Ubicación</a></li>
+          <li><a href="faq.html">Preguntas Frecuentes</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="pie-pagina__columna">
+        <h3 class="pie-pagina__titulo-columna">Contacto</h3>
+        <ul class="pie-pagina__lista">
+          <li>📍 Paseo Delicias 23, 30202 Cartagena</li>
+          <li>✉️ <a href="mailto:info@casaveraestudiantes.es">info@casaveraestudiantes.es</a></li>
+        </ul>
+      </div>
+
+      <div class="pie-pagina__columna">
+        <h3 class="pie-pagina__titulo-columna">Legal</h3>
+        <ul class="pie-pagina__lista">
+          <li><a href="legal/privacidad.html">Política de Privacidad</a></li>
+          <li><a href="legal/aviso-legal.html">Aviso Legal</a></li>
+          <li><a href="legal/cookies.html">Política de Cookies</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="pie-pagina__inferior">
+      <p>© 2026 Casa Vera — Todos los derechos reservados</p>
+    </div>
+
+  </footer>
+
+</body>
+</html>
