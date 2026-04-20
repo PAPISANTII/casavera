@@ -5,6 +5,65 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    // ================================
+  // FORMULARIO DE CONTACTO
+  // ================================
+
+  const formulario = document.getElementById('formulario-contacto');
+
+  if (formulario) {
+    formulario.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const boton = formulario.querySelector('.formulario__boton');
+      const textoOriginal = boton.textContent;
+
+      // Limpiar mensajes anteriores
+      const mensajeAnterior = formulario.querySelector('.formulario__mensaje');
+      if (mensajeAnterior) mensajeAnterior.remove();
+
+      // Estado cargando
+      boton.textContent = 'Enviando...';
+      boton.disabled = true;
+
+      try {
+        const datos = new FormData(formulario);
+
+        const respuesta = await fetch('enviar.php', {
+          method: 'POST',
+          body: datos
+        });
+
+        const resultado = await respuesta.json();
+        const mensaje = document.createElement('div');
+        mensaje.classList.add('formulario__mensaje');
+
+        if (resultado.ok) {
+          mensaje.classList.add('formulario__mensaje--ok');
+          mensaje.textContent = '✓ Mensaje enviado correctamente. Te respondemos en menos de 24 horas.';
+          formulario.reset();
+        } else {
+          mensaje.classList.add('formulario__mensaje--error');
+          mensaje.textContent = resultado.errores
+            ? resultado.errores.join(' ')
+            : 'Ha ocurrido un error. Inténtalo de nuevo.';
+        }
+
+        formulario.appendChild(mensaje);
+        mensaje.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      } catch (error) {
+        const mensaje = document.createElement('div');
+        mensaje.classList.add('formulario__mensaje', 'formulario__mensaje--error');
+        mensaje.textContent = 'Error de conexión. Comprueba tu internet e inténtalo de nuevo.';
+        formulario.appendChild(mensaje);
+      }
+
+      boton.textContent = textoOriginal;
+      boton.disabled = false;
+    });
+  }
+
   // -----------------------------------------------
   // 1. RELLENAR PRECIOS DINÁMICAMENTE
   // -----------------------------------------------
@@ -54,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-/*
+  /*
   // Dropdown escritorio con JS
   if (itemDesplegable) {
     itemDesplegable.addEventListener("mouseenter", () => {

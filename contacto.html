@@ -90,10 +90,10 @@
           <h2 class="contacto__titulo">¿Tienes alguna pregunta?</h2>
           <p class="contacto__subtexto">Rellena el formulario y te contestamos en menos de 24 horas.</p>
 
-          <form class="formulario" id="formulario-contacto" action="https://formspree.io/f/XXXXXXXX" method="POST" novalidate>
+          <form class="formulario" id="formulario-contacto" novalidate>
 
             <div class="formulario__grupo">
-            <label class="formulario__etiqueta" for="nombre">Nombre completo *</label>
+              <label class="formulario__etiqueta" for="nombre">Nombre completo *</label>
               <input
                 class="formulario__input"
                 type="text"
@@ -131,13 +131,13 @@
               <label class="formulario__etiqueta" for="habitacion">Habitación de interés</label>
               <select class="formulario__input formulario__select" id="habitacion" name="habitacion">
                 <option value="">— Selecciona una opción —</option>
-                <option value="individual-balcon-banio-interior">Individual con balcón y baño interior</option>
-                <option value="individual-banio-interior">Individual con baño interior</option>
-                <option value="individual-balcon-banio-exterior">Individual con balcón y baño exterior</option>
-                <option value="individual-banio-exterior">Individual con baño exterior</option>
-                <option value="doble-banio-interior">Doble con baño interior</option>
-                <option value="doble-balcon-banio-exterior">Doble con balcón y baño exterior</option>
-                <option value="sin-decidir">Aún no lo sé</option>
+                <option value="Individual con balcón y baño interior">Individual con balcón y baño interior</option>
+                <option value="Individual con baño interior">Individual con baño interior</option>
+                <option value="Individual con balcón y baño exterior">Individual con balcón y baño exterior</option>
+                <option value="Individual con baño exterior">Individual con baño exterior</option>
+                <option value="Doble con baño interior">Doble con baño interior</option>
+                <option value="Doble con balcón y baño exterior">Doble con balcón y baño exterior</option>
+                <option value="Aún no lo sé">Aún no lo sé</option>
               </select>
             </div>
 
@@ -158,6 +158,12 @@
               <label for="privacidad" class="formulario__etiqueta-check">
                 He leído y acepto la <a href="legal/privacidad.html">Política de Privacidad</a>
               </label>
+            </div>
+
+            <!-- Honeypot antispam — no tocar -->
+            <div style="display:none" aria-hidden="true">
+              <label for="website">No rellenar</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
             </div>
 
             <button type="submit" class="btn btn--primario formulario__boton">Enviar mensaje</button>

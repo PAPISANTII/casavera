@@ -2238,3 +2238,26 @@ ul {
   }
 }
 
+/* ================================
+   Formulario — CONTACTO
+================================ */
+.formulario__mensaje {
+  padding: var(--espacio-sm) var(--espacio-md);
+  border-radius: var(--radio-sm);
+  font-size: var(--texto-sm);
+  font-weight: 500;
+  margin-top: var(--espacio-sm);
+  line-height: 1.6;
+}
+
+.formulario__mensaje--ok {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border-left: 3px solid #2e7d32;
+}
+
+.formulario__mensaje--error {
+  background-color: #fdecea;
+  color: #c62828;
+  border-left: 3px solid #c62828;
+}
