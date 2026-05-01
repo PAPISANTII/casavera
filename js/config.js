@@ -18,12 +18,13 @@ const CASAVERA = {
 
   // --- PRECIOS (en € / mes) ---
   precios: {
-    individual_balcon_banio_interior:       430,
-    individual_sin_balcon_banio_interior:   420,
-    individual_balcon_banio_exterior:       410,
-    individual_sin_balcon_banio_exterior:   400,
+    individual_balcon_banio_interior:       450,
+    individual_sin_balcon_banio_interior:   440,
+    individual_balcon_banio_exterior:       430,
+    individual_sin_balcon_banio_exterior:   420,
     doble_grande_banio_interior:            650,
     doble_balcon_banio_exterior:            600,
+    individual_planta_baja:                 400,
   },
 
   // --- FIANZAS (calculadas automáticamente: medio mes) ---
