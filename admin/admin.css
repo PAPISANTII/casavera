@@ -1,0 +1,592 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-principal: #C0614A;
+    --color-secundario: #F2E8D9;
+    --color-acento: #7A9E7E;
+    --color-fondo: #FAFAF8;
+    --color-texto: #1A1A1A;
+    --color-texto-claro: #6B6B6B;
+    --color-blanco: #FFFFFF;
+    --color-negro: #0D0D0D;
+    --color-disponible: #7A9E7E;
+    --color-reservado: #C0614A;
+    --color-ocupado: #D32F2F;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+/* Dashboard layout */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background-color: var(--color-negro);
+    color: var(--color-blanco);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar__logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.sidebar__logo p {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+}
+
+.sidebar__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 32px;
+    flex-grow: 1;
+}
+
+.sidebar__link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 6px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.sidebar__link:hover,
+.sidebar__link.activo {
+    background-color: rgba(192, 97, 74, 0.2);
+    color: var(--color-blanco);
+}
+
+.sidebar__icono {
+    font-size: 1.1rem;
+}
+
+.sidebar__user {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.7);
+}
+
+.sidebar__logout {
+    display: inline-block;
+    margin-top: 8px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.sidebar__logout:hover {
+    color: var(--color-blanco);
+    text-decoration: underline;
+}
+
+/* Main content */
+.main {
+    flex-grow: 1;
+    margin-left: 260px;
+    padding: 32px;
+}
+
+.main__header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    margin-bottom: 4px;
+}
+
+.main__header p {
+    color: var(--color-texto-claro);
+    font-size: 0.9rem;
+}
+
+/* Selector de planta */
+.planta-selector {
+    display: flex;
+    gap: 8px;
+    margin: 24px 0;
+    flex-wrap: wrap;
+}
+
+.planta-btn {
+    padding: 10px 20px;
+    background-color: var(--color-blanco);
+    border: 1.5px solid var(--color-secundario);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-texto);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.planta-btn:hover {
+    border-color: var(--color-principal);
+    color: var(--color-principal);
+}
+
+.planta-btn.activo {
+    background-color: var(--color-principal);
+    border-color: var(--color-principal);
+    color: var(--color-blanco);
+}
+
+/* Leyenda */
+.leyenda {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.leyenda__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: var(--color-texto-claro);
+}
+
+.leyenda__color {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+}
+
+.leyenda__color--disponible { background-color: var(--color-disponible); }
+.leyenda__color--reservado { background-color: var(--color-reservado); }
+.leyenda__color--ocupado { background-color: var(--color-ocupado); }
+
+/* Plano SVG */
+.plano-contenedor {
+    background-color: var(--color-blanco);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    margin-bottom: 24px;
+}
+
+.plano-svg {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: block;
+}
+
+.habitacion-svg {
+    fill: var(--color-disponible);
+    stroke: #1a1a1a;
+    stroke-width: 1;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.habitacion-svg:hover {
+    filter: brightness(0.95);
+    transform: scale(1.02);
+}
+
+.habitacion-svg[data-estado="disponible"] {
+    fill: var(--color-disponible);
+}
+
+.habitacion-svg[data-estado="reservado"] {
+    fill: var(--color-reservado);
+}
+
+.habitacion-svg[data-estado="ocupado"] {
+    fill: var(--color-ocupado);
+}
+
+.hab-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    fill: #ffffff;
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.activo {
+    display: flex;
+}
+
+.modal__contenido {
+    background-color: var(--color-blanco);
+    border-radius: 12px;
+    padding: 32px;
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+    animation: modalEntrar 0.2s ease-out;
+}
+
+@keyframes modalEntrar {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal__cerrar {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--color-texto-claro);
+    padding: 4px;
+    line-height: 1;
+}
+
+.modal__cerrar:hover {
+    color: var(--color-principal);
+}
+
+.modal__contenido h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.modal__estado {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+}
+
+.modal__estado--disponible {
+    background-color: rgba(122, 158, 126, 0.1);
+    color: var(--color-disponible);
+}
+
+.modal__estado--reservado {
+    background-color: rgba(192, 97, 74, 0.1);
+    color: var(--color-reservado);
+}
+
+.modal__estado--ocupado {
+    background-color: rgba(211, 47, 47, 0.1);
+    color: var(--color-ocupado);
+}
+
+.modal__info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal__info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-secundario);
+    font-size: 0.9rem;
+}
+
+.modal__info-item:last-child {
+    border-bottom: none;
+}
+
+.modal__info-label {
+    color: var(--color-texto-claro);
+    font-size: 0.8rem;
+}
+
+.modal__info-valor {
+    font-weight: 500;
+    text-align: right;
+}
+
+.modal__info-valor a {
+    color: var(--color-principal);
+    text-decoration: none;
+}
+
+.modal__info-valor a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 220px;
+    }
+
+    .main {
+        margin-left: 220px;
+        padding: 16px;
+    }
+
+    .plano-container {
+        padding: 16px;
+    }
+}
+
+/* --- Estilos Gestión de Habitaciones --- */
+
+/* Mensaje de éxito/error */
+.mensaje {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+}
+.mensaje--ok {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-left: 3px solid #2e7d32;
+}
+.mensaje--error {
+    background-color: #fdecea;
+    color: #c62828;
+    border-left: 3px solid #c62828;
+}
+
+/* Tabla habitaciones */
+.tabla-habitaciones {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-blanco);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+.tabla-habitaciones thead {
+    background-color: var(--color-secundario);
+}
+.tabla-habitaciones th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-texto-claro);
+}
+.tabla-habitaciones td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-secundario);
+    font-size: 0.9rem;
+}
+.tabla-habitaciones tr:last-child td {
+    border-bottom: none;
+}
+.tabla-habitaciones tr:hover {
+    background-color: var(--color-secundario);
+}
+
+/* Badge estado en tabla */
+.estado-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.estado--disponible {
+    background-color: rgba(122, 158, 126, 0.1);
+    color: var(--color-disponible);
+}
+.estado--reservado {
+    background-color: rgba(192, 97, 74, 0.1);
+    color: var(--color-reservado);
+}
+.estado--ocupado {
+    background-color: rgba(211, 47, 47, 0.1);
+    color: var(--color-ocupado);
+}
+
+/* Botones en la tabla */
+.btn-editar {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-editar:hover {
+    background-color: var(--color-principal);
+    opacity: 0.85;
+}
+
+/* Formulario modal */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.form-group {
+    margin-bottom: 16px;
+}
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    margin-bottom: 6px;
+}
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid var(--color-secundario);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--color-principal);
+}
+.form-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-secundario);
+}
+.btn-cancelar {
+    background: transparent;
+    color: #C0614A;
+    border: 1.5px solid #C0614A;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-family: Inter, sans-serif;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+    font-weight: 500;
+}
+.btn-cancelar:hover {
+    background: #C0614A;
+    color: #fff;
+}
+.btn-guardar {
+    padding: 10px 24px;
+    border-radius: 6px;
+    background-color: var(--color-principal);
+    border: none;
+    color: var(--color-blanco);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-guardar:hover {
+    opacity: 0.9;
+}
+
+/* Botón nuevo inquilino */
+.inquilinos-header {
+    margin-bottom: 16px;
+}
+.btn-nuevo {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 6px;
+    background-color: var(--color-acento);
+    border: none;
+    color: var(--color-blanco);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-nuevo:hover {
+    opacity: 0.85;
+}
+/* Botón PDF en la tabla de contratos */
+.btn-pdf {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+.btn-pdf:hover {
+    opacity: 0.75;
+}
+.btn-eliminar {
+    background: transparent;
+    color: #C0614A;
+    border: 1.5px solid #C0614A;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-family: Inter, sans-serif;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+    margin-left: 6px;
+    font-weight: 500;
+}
+
+.btn-eliminar:hover {
+    background: #C0614A;
+    color: #fff;
+}

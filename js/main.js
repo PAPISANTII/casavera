@@ -67,21 +67,38 @@ document.addEventListener("DOMContentLoaded", () => {
   // -----------------------------------------------
   // 1. RELLENAR PRECIOS DINÁMICAMENTE
   // -----------------------------------------------
-  document.querySelectorAll("[data-precio]").forEach(elemento => {
-    const tipo = elemento.getAttribute("data-precio");
-    if (CASAVERA.precios[tipo] !== undefined) {
-      elemento.textContent = CASAVERA.precios[tipo] + " €/mes";
-    }
-  });
+  // Esto — lee de la BD via API
+  // Añade ?v= con timestamp para saltarte el caché siempre
+  fetch('https://casaveraestudiantes.es/admin/api/precios.php?v=' + Date.now())
+      .then(res => res.json())
+      .then(data => {
+          if (!data || !data.success) return;
+          const precios = data.precios;
 
-  // Fianzas
-  const fianzas = CASAVERA.fianzas();
-  document.querySelectorAll("[data-fianza]").forEach(elemento => {
-    const tipo = elemento.getAttribute("data-fianza");
-    if (fianzas[tipo] !== undefined) {
-      elemento.textContent = fianzas[tipo] + " €";
-    }
-  });
+          document.querySelectorAll('[data-precio]').forEach(elemento => {
+              const tipo = elemento.getAttribute('data-precio');
+              if (precios[tipo] !== undefined) {
+                  elemento.textContent = precios[tipo] + ' €/mes';
+              }
+          });
+
+          // Fianzas = precio / 2
+          document.querySelectorAll('[data-fianza]').forEach(elemento => {
+              const tipo = elemento.getAttribute('data-fianza');
+              if (precios[tipo] !== undefined) {
+                  elemento.textContent = Math.round(precios[tipo] / 2) + ' €';
+              }
+          });
+      })
+      .catch(() => {
+          // Fallback: si falla la API usa los precios del config.js
+          document.querySelectorAll('[data-precio]').forEach(elemento => {
+              const tipo = elemento.getAttribute('data-precio');
+              if (CASAVERA.precios[tipo] !== undefined) {
+                  elemento.textContent = CASAVERA.precios[tipo] + ' €/mes';
+              }
+          });
+      });
 
   // -----------------------------------------------
   // 2. MENÚ HAMBURGUESA Y DROPDOWN
@@ -140,68 +157,39 @@ document.addEventListener("DOMContentLoaded", () => {
   // -----------------------------------------------
   // 3. CARRUSEL
   // -----------------------------------------------
-  const slides = document.querySelectorAll(".carrusel__slide");
-  const miniaturas = document.querySelectorAll(".carrusel__miniatura");
-  const flechaIzq = document.getElementById("flecha-izq");
-  const flechaDer = document.getElementById("flecha-der");
+  function iniciarCarrusel() {
+    const slides = document.querySelectorAll(".carrusel__slide");
+    const miniaturas = document.querySelectorAll(".carrusel__miniatura");
+    const flechaIzq = document.getElementById("flecha-izq");
+    const flechaDer = document.getElementById("flecha-der");
 
-  // Solo ejecutar si hay carrusel en la página
-  if (slides.length === 0) return;
+    if (slides.length === 0) return; // ← ahora solo sale de esta función
 
-  let indiceActual = 0;
+    let indiceActual = 0;
 
-  function irASlide(nuevoIndice) {
-    // Quitar activo del slide actual
-    slides[indiceActual].classList.remove("activo");
-    miniaturas[indiceActual].classList.remove("activo");
-
-    // Si el slide actual es un vídeo, pausarlo
-    const iframeActual = slides[indiceActual].querySelector("iframe");
-    if (iframeActual) {
-      // Recargar el src para pausar el vídeo de YouTube
-      iframeActual.src = iframeActual.src;
+    function irASlide(nuevoIndice) {
+      slides[indiceActual].classList.remove("activo");
+      miniaturas[indiceActual].classList.remove("activo");
+      const iframeActual = slides[indiceActual].querySelector("iframe");
+      if (iframeActual) iframeActual.src = iframeActual.src;
+      indiceActual = nuevoIndice;
+      slides[indiceActual].classList.add("activo");
+      miniaturas[indiceActual].classList.add("activo");
+      miniaturas[indiceActual].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     }
 
-    // Actualizar índice
-    indiceActual = nuevoIndice;
+    function siguiente() { irASlide((indiceActual + 1) % slides.length); }
+    function anterior() { irASlide((indiceActual - 1 + slides.length) % slides.length); }
 
-    // Activar nuevo slide
-    slides[indiceActual].classList.add("activo");
-    miniaturas[indiceActual].classList.add("activo");
-
-    // Scroll a miniatura activa si se sale de la vista
-    miniaturas[indiceActual].scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center"
+    if (flechaDer) flechaDer.addEventListener("click", siguiente);
+    if (flechaIzq) flechaIzq.addEventListener("click", anterior);
+    miniaturas.forEach((miniatura, indice) => miniatura.addEventListener("click", () => irASlide(indice)));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") siguiente();
+      if (e.key === "ArrowLeft") anterior();
     });
   }
 
-  function siguiente() {
-    const nuevo = (indiceActual + 1) % slides.length;
-    irASlide(nuevo);
-  }
-
-  function anterior() {
-    const nuevo = (indiceActual - 1 + slides.length) % slides.length;
-    irASlide(nuevo);
-  }
-
-  // Flechas
-  if (flechaDer) flechaDer.addEventListener("click", siguiente);
-  if (flechaIzq) flechaIzq.addEventListener("click", anterior);
-
-  // Miniaturas
-  miniaturas.forEach((miniatura, indice) => {
-    miniatura.addEventListener("click", () => {
-      irASlide(indice);
-    });
-  });
-
-  // Navegación con teclado
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight") siguiente();
-    if (e.key === "ArrowLeft") anterior();
-  });
+  iniciarCarrusel();
 
 });
