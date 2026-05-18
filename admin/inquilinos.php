@@ -17,22 +17,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $direccion    = trim($_POST['direccion'] ?? '');
         $email        = trim($_POST['email'] ?? '');
         $telefono     = trim($_POST['telefono'] ?? '');
+        $habitacion_id = intval($_POST['habitacion_id'] ?? 0) ?: null;
 
         if ($id > 0) {
             $stmt = $pdo->prepare('
                 UPDATE inquilinos SET nombre = ?, apellidos = ?, nacionalidad = ?,
-                documento = ?, direccion = ?, email = ?, telefono = ? WHERE id = ?
+                documento = ?, direccion = ?, email = ?, telefono = ?, habitacion_id = ? WHERE id = ?
             ');
-            $stmt->execute([$nombre, $apellidos, $nacionalidad, $documento, $direccion, $email, $telefono, $id]);
+            $stmt->execute([$nombre, $apellidos, $nacionalidad, $documento, $direccion, $email, $telefono, $habitacion_id, $id]);
         } else {
             $stmt = $pdo->prepare('
-                INSERT INTO inquilinos (nombre, apellidos, nacionalidad, documento, direccion, email, telefono)
-                VALUES (?, ?, ?, ?, ?, ?, ?)
+                INSERT INTO inquilinos (nombre, apellidos, nacionalidad, documento, direccion, email, telefono, habitacion_id)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             ');
-            $stmt->execute([$nombre, $apellidos, $nacionalidad, $documento, $direccion, $email, $telefono]);
+            $stmt->execute([$nombre, $apellidos, $nacionalidad, $documento, $direccion, $email, $telefono, $habitacion_id]);
         }
         $mensaje = 'Inquilino guardado correctamente';
         $tipo_mensaje = 'ok';
+    
     }
     if ($accion === 'eliminar') {
     $id = intval(filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT));
@@ -54,6 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 }
 
+$stmtHabs = $pdo->query('SELECT id, numero, planta FROM habitaciones ORDER BY planta, numero');
+$habitacionesDisponibles = $stmtHabs->fetchAll();
 $stmt = $pdo->query('SELECT * FROM inquilinos ORDER BY apellidos, nombre');
 $inquilinos = $stmt->fetchAll();
 ?>
@@ -123,6 +127,7 @@ $inquilinos = $stmt->fetchAll();
                         <th>Documento</th>
                         <th>Email</th>
                         <th>Teléfono</th>
+                        <th>Habitación</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -135,6 +140,7 @@ $inquilinos = $stmt->fetchAll();
                         <td><?php echo htmlspecialchars($i['documento'] ?: '—'); ?></td>
                         <td><?php echo $i['email'] ? '<a href="mailto:'.$i['email'].'">'.htmlspecialchars($i['email']).'</a>' : '—'; ?></td>
                         <td><?php echo htmlspecialchars($i['telefono'] ?: '—'); ?></td>
+                        <td><?php echo intval($i['habitacion_id'] ?? 0) ? 'Hab. ' . intval($i['habitacion_id'] ?? 0) : '—'; ?></td>
                         <td>
                             <button type="button" class="btn-editar"
                                     data-id="<?php echo (int)$i['id']; ?>"
@@ -144,7 +150,8 @@ $inquilinos = $stmt->fetchAll();
                                     data-documento="<?php echo htmlspecialchars($i['documento']); ?>"
                                     data-direccion="<?php echo htmlspecialchars($i['direccion']); ?>"
                                     data-email="<?php echo htmlspecialchars($i['email']); ?>"
-                                    data-telefono="<?php echo htmlspecialchars($i['telefono']); ?>">
+                                    data-telefono="<?php echo htmlspecialchars($i['telefono']); ?>"
+                                    data-habitacion="<?= intval($i['habitacion_id'] ?? 0) ?>">
                                 Editar
                             </button>
                             <button type="button" class="btn-eliminar" data-id="<?php echo intval($i['id']); ?>" data-nombre="<?php echo htmlspecialchars($i['nombre'] . ' ' . $i['apellidos']); ?>">Eliminar</button>
@@ -201,6 +208,15 @@ $inquilinos = $stmt->fetchAll();
                         <input type="text" id="edit-telefono" name="telefono">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="edit-habitacion">Habitación asignada</label>
+                    <select id="edit-habitacion" name="habitacion_id">
+                        <option value="">— Sin asignar —</option>
+                        <?php foreach ($habitacionesDisponibles as $h): ?>
+                            <option value="<?= $h['id'] ?>">Planta <?= $h['planta'] ?> — Hab. <?= $h['numero'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
                 <div class="form-buttons">
                     <button type="button" class="btn-cancelar" id="btn-cancelar">Cancelar</button>
                     <button type="submit" class="btn-guardar">Guardar inquilino</button>
@@ -228,6 +244,7 @@ $inquilinos = $stmt->fetchAll();
         const inputDir = document.getElementById('edit-direccion');
         const inputEmail = document.getElementById('edit-email');
         const inputTel = document.getElementById('edit-telefono');
+        const inputHabitacion = document.getElementById('edit-habitacion');
 
         btnNuevo.addEventListener('click', () => {
             tituloModal.textContent = 'Nuevo inquilino';
@@ -239,6 +256,7 @@ $inquilinos = $stmt->fetchAll();
             inputDir.value = '';
             inputEmail.value = '';
             inputTel.value = '';
+            inputHabitacion.value = '';
             modal.classList.add('activo');
         });
 
@@ -253,6 +271,7 @@ $inquilinos = $stmt->fetchAll();
                 inputDir.value = btn.dataset.direccion;
                 inputEmail.value = btn.dataset.email;
                 inputTel.value = btn.dataset.telefono;
+                inputHabitacion.value = btn.dataset.habitacion || '';
                 modal.classList.add('activo');
             });
         });
