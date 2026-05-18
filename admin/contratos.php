@@ -232,11 +232,10 @@ $inquilinos = $stmtInquilinos->fetchAll();
                                                 data-fianza="<?php echo (float)$c['fianza']; ?>">
                                                 Editar
                                             </button>
-                                            <a href="api/generar-contrato.php?id=<?php echo intval($c['id']); ?>" 
-                                                class="btn-pdf" 
-                                                target="_blank">
-                                                📄 PDF
-                                            </a>
+                                            <a href="api/generar-contrato.php?id=<?= $c['id'] ?>" class="btn-pdf" target="_blank">Contrato</a>
+                                            <a href="api/generar-ficha-residente.php?id=<?= $c['id'] ?>" class="btn-pdf btn-pdf--residente" target="_blank">Residente</a>
+                                            <a href="api/generar-deposit-receipt.php?id=<?= $c['id'] ?>" class="btn-pdf btn-pdf--en" target="_blank">Receipt</a>
+                                            <a href="api/generar-recibo-fianza.php?id=<?= $c['id'] ?>" class="btn-pdf btn-pdf--fianza" target="_blank">Recibo</a>
 
                                             <form method="POST" onsubmit="return confirm('¿Seguro que quieres eliminar este contrato?');" style="display:inline;">
                                                 <input type="hidden" name="accion" value="eliminar">

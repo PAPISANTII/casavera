@@ -557,19 +557,12 @@ body {
     opacity: 0.85;
 }
 /* Botón PDF en la tabla de contratos */
-.btn-pdf {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 6px;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: opacity 0.2s;
-}
+.btn-pdf { font-size: 0.78rem; padding: 4px 8px; border-radius: 6px; background: #5a7a5a; color: #fff; text-decoration: none; margin-right: 3px; }
+.btn-pdf--residente { background: #4a6a8a; }
+.btn-pdf--en        { background: #6a5a8a; }
+.btn-pdf--fianza    { background: #8a6a3a; }
 .btn-pdf:hover {
-    opacity: 0.75;
+    opacity: 0.70;
 }
 .btn-eliminar {
     background: transparent;
