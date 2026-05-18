@@ -24,6 +24,7 @@ $telefono   = isset($_POST['telefono'])   ? htmlspecialchars(trim($_POST['telefo
 $habitacion = isset($_POST['habitacion']) ? htmlspecialchars(trim($_POST['habitacion'])) : 'No indicada';
 $mensaje    = isset($_POST['mensaje'])    ? htmlspecialchars(trim($_POST['mensaje']))    : '';
 $privacidad = isset($_POST['privacidad']) ? true : false;
+$idioma = (isset($_POST['idioma']) && $_POST['idioma'] === 'en') ? '🇬🇧 Formulario EN' : '🇪🇸 Formulario ES';
 
 // ================================
 // VALIDACIÓN
@@ -70,9 +71,9 @@ if (!empty($_POST['website'])) {
 // ================================
 
 if (!empty($habitacion) && $habitacion !== 'No indicada' && $habitacion !== 'Aún no lo sé') {
-  $asunto = '[Casa Vera] Consulta: ' . $habitacion . ' — ' . $nombre;
+  $asunto = '[Casa Vera] ' . $idioma . ' · Consulta: ' . $habitacion . ' — ' . $nombre;
 } else {
-  $asunto = '[Casa Vera] Nuevo mensaje de contacto — ' . $nombre;
+  $asunto = '[Casa Vera] ' . $idioma . ' · Nuevo mensaje de contacto — ' . $nombre;
 }
 
 // ================================
@@ -85,6 +86,7 @@ Nuevo mensaje recibido desde casaveraestudiantes.es
 
 DATOS DEL CONTACTO
 -------------------
+Idioma:       {$idioma}
 Nombre:       {$nombre}
 Email:        {$email}
 Teléfono:     {$telefono}

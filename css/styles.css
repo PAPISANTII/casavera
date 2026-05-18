@@ -186,6 +186,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 /* Logo */
@@ -2378,4 +2379,93 @@ ul {
 
 .banda-descuento__enlace:hover {
     opacity: 0.85;
+}
+
+/* ===== SELECTOR IDIOMA ===== */
+.cabecera__derecha {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.menu__idioma {
+    position: relative;
+}
+
+.menu__idioma-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: none;
+    border: 1.5px solid rgba(0,0,0,0.15);
+    border-radius: 999px;
+    padding: 0.35rem 0.75rem;
+    font-size: var(--texto-sm);
+    font-weight: 500;
+    color: var(--color-texto);
+    cursor: pointer;
+    transition: var(--transicion);
+    white-space: nowrap;
+}
+
+.menu__idioma-btn:hover {
+    border-color: var(--color-principal);
+    color: var(--color-principal);
+}
+
+.menu__idioma-chevron {
+    transition: transform 0.2s ease;
+}
+
+.menu__idioma.abierto .menu__idioma-chevron {
+    transform: rotate(180deg);
+}
+
+.menu__submenu--idioma {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--color-blanco);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: var(--radio-md);
+    box-shadow: var(--sombra-md);
+    min-width: 110px;
+    list-style: none;
+    padding: 0.3rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+    z-index: 1000;
+}
+
+.menu__idioma.abierto .menu__submenu--idioma {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.idioma-opcion {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 0.55rem 1rem;
+    font-size: var(--texto-sm);
+    cursor: pointer;
+    color: var(--color-texto);
+    transition: var(--transicion);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.idioma-opcion:hover {
+    background: var(--color-secundario);
+    color: var(--color-principal);
+}
+
+.idioma-opcion.activo-idioma {
+    font-weight: 600;
+    color: var(--color-principal);
 }

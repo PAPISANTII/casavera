@@ -62,8 +62,21 @@
             </ul>
             </nav>
             
-            <!-- Botón CTA -->
-            <a href="contacto.html" class="btn btn--primario cabecera__cta">Contactar</a>
+            <!-- Selector de idioma y CTA escritorio -->
+            <div class="cabecera__derecha">
+            <div class="menu__idioma">
+                <button class="menu__idioma-btn" aria-label="Seleccionar idioma">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span>ES</span>
+                    <svg class="menu__idioma-chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <ul class="menu__submenu--idioma">
+                    <li><button class="idioma-opcion activo-idioma" data-lang="es">🇪🇸 ES</button></li>
+                    <li><button class="idioma-opcion" data-lang="en">🇬🇧 EN</button></li>
+                </ul>
+            </div>
+                <a href="contacto.html" class="btn btn--primario cabecera__cta">Contactar</a>
+            </div>
 
             <!-- Hamburguesa móvil -->
             <button class="cabecera__hamburguesa" id="boton-menu" aria-label="Abrir menú">
@@ -121,13 +134,13 @@
             </div>
             <div class="carrusel__miniaturas" id="carrusel-miniaturas">
                 <button class="carrusel__miniatura activo" data-indice="0" aria-label="Ver foto 1">
-                <img src="img/planta-baja/hab1.webp" alt="Miniatura 1" />
+                <img src="img/hab7/hab1.webp" alt="Miniatura 1" />
                 </button>
                 <button class="carrusel__miniatura" data-indice="1" aria-label="Ver foto 2">
-                <img src="img/planta-baja/hab2.webp" alt="Miniatura 2" />
+                <img src="img/hab7/hab2.webp" alt="Miniatura 2" />
                 </button>
                 <button class="carrusel__miniatura" data-indice="2" aria-label="Ver foto 3">
-                <img src="img/planta-baja/banio.webp" alt="Miniatura 3" />
+                <img src="img/hab7/banio.webp" alt="Miniatura 3" />
                 </button>
                 <button class="carrusel__miniatura carrusel__miniatura--video" data-indice="3" aria-label="Ver vídeo">
                 <span class="carrusel__icono-play">▶</span>

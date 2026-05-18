@@ -55,29 +55,41 @@
 
       <!-- Menú escritorio -->
     <nav class="cabecera__menu" id="menu-principal">
-    <ul class="menu__lista">
-      <li><a href="index.html" class="activo">Inicio</a></li>
-      <li class="menu__desplegable">
-        <a href="habitaciones.html">Habitaciones
-        <span class="desplegable__flecha">▾</span>
-        </a>
-        <ul class="desplegable__lista">
-          <li><a href="habitacion-individual-balcon-banio-interior.html">Individual con balcón y baño interior</a></li>
-          <li><a href="habitacion-individual-banio-interior.html">Individual con baño interior</a></li>
-          <li><a href="habitacion-individual-balcon-banio-exterior.html">Individual con balcón y baño exterior</a></li>
-          <li><a href="habitacion-individual-banio-exterior.html">Individual con baño exterior</a></li>
-          <li><a href="habitacion-individual-planta-baja.html">Individual planta baja con baño interior</a></li>
-          <li><a href="habitacion-doble-banio-interior.html">Doble con baño interior</a></li>
-          <li><a href="habitacion-doble-balcon-banio-exterior.html">Doble con balcón y baño exterior</a></li>
-        </ul>
-      </li>
-      <li><a href="servicios.html">Servicios</a></li>
-      <li><a href="ubicacion.html">Ubicación</a></li>
-    </ul>
+      <ul class="menu__lista">
+        <li><a href="index.html" class="activo">Inicio</a></li>
+        <li class="menu__desplegable">
+          <a href="habitaciones.html">Habitaciones
+          <span class="desplegable__flecha">▾</span>
+          </a>
+          <ul class="desplegable__lista">
+            <li><a href="habitacion-individual-balcon-banio-interior.html">Individual con balcón y baño interior</a></li>
+            <li><a href="habitacion-individual-banio-interior.html">Individual con baño interior</a></li>
+            <li><a href="habitacion-individual-balcon-banio-exterior.html">Individual con balcón y baño exterior</a></li>
+            <li><a href="habitacion-individual-banio-exterior.html">Individual con baño exterior</a></li>
+            <li><a href="habitacion-individual-planta-baja.html">Individual planta baja con baño interior</a></li>
+            <li><a href="habitacion-doble-banio-interior.html">Doble con baño interior</a></li>
+            <li><a href="habitacion-doble-balcon-banio-exterior.html">Doble con balcón y baño exterior</a></li>
+          </ul>
+        </li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="ubicacion.html">Ubicación</a></li>
+      </ul>
     </nav>
-    
-      <!-- Botón CTA -->
-      <a href="contacto.html" class="btn btn--primario cabecera__cta">Contactar</a>
+    <!-- Selector de idioma y CTA escritorio -->
+    <div class="cabecera__derecha">
+      <div class="menu__idioma">
+          <button class="menu__idioma-btn" aria-label="Seleccionar idioma">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <span>ES</span>
+              <svg class="menu__idioma-chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <ul class="menu__submenu--idioma">
+              <li><button class="idioma-opcion activo-idioma" data-lang="es">🇪🇸 ES</button></li>
+              <li><button class="idioma-opcion" data-lang="en">🇬🇧 EN</button></li>
+          </ul>
+      </div>
+        <a href="contacto.html" class="btn btn--primario cabecera__cta">Contactar</a>
+    </div>
 
       <!-- Hamburguesa móvil -->
       <button class="cabecera__hamburguesa" id="boton-menu" aria-label="Abrir menú">
