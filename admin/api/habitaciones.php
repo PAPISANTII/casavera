@@ -81,5 +81,17 @@ if ($accion === 'precio_por_id') {
     }
 }
 
+if ($accion === 'habitacion_por_inquilino') {
+    $inquilino_id = intval($_GET['inquilino_id'] ?? 0);
+    try {
+        $stmt = $pdo->prepare('SELECT habitacion_id FROM inquilinos WHERE id = ?');
+        $stmt->execute([$inquilino_id]);
+        $row = $stmt->fetch();
+        jsonResponse(['success' => true, 'habitacion_id' => $row ? $row['habitacion_id'] : null]);
+    } catch (PDOException $e) {
+        jsonResponse(['success' => false, 'error' => $e->getMessage()], 500);
+    }
+}
+
 http_response_code(400);
 jsonResponse(['success' => false, 'error' => 'Accion no valida']);

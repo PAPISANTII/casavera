@@ -269,24 +269,24 @@ $inquilinos = $stmtInquilinos->fetchAll();
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="contrato-habitacion">Habitación</label>
-                        <select name="habitacion_id" id="contrato-habitacion" required>
-                            <option value="">Selecciona una habitación</option>
-                            <?php foreach ($habitaciones as $h): ?>
-                                <option value="<?php echo (int)$h['id']; ?>">
-                                    <?php echo 'Hab. ' . (int)$h['numero'] . ' — Planta ' . (int)$h['planta']; ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
                         <label for="contrato-inquilino">Inquilino</label>
                         <select name="inquilino_id" id="contrato-inquilino" required>
                             <option value="">Selecciona un inquilino</option>
                             <?php foreach ($inquilinos as $i): ?>
                                 <option value="<?php echo (int)$i['id']; ?>">
                                     <?php echo htmlspecialchars($i['nombre'] . ' ' . $i['apellidos']); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contrato-habitacion">Habitación</label>
+                        <select name="habitacion_id" id="contrato-habitacion" required>
+                            <option value="">Selecciona una habitación</option>
+                            <?php foreach ($habitaciones as $h): ?>
+                                <option value="<?php echo (int)$h['id']; ?>">
+                                    <?php echo 'Hab. ' . (int)$h['numero'] . ' — Planta ' . (int)$h['planta']; ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
@@ -308,11 +308,7 @@ $inquilinos = $stmtInquilinos->fetchAll();
                 <div class="form-row">
                     <div class="form-group">
                         <label for="contrato-tipo">Tipo de contrato</label>
-                        <select name="tipo_contrato" id="contrato-tipo" required>
-                            <option value="estandar">Estándar</option>
-                            <option value="erasmus">Erasmus</option>
-                            <option value="curso_completo">Curso completo</option>
-                        </select>
+                        <input type="text" name="tipo_contrato" value="Estandar" readonly>
                     </div>
 
                     <div class="form-group">
@@ -347,7 +343,6 @@ $inquilinos = $stmtInquilinos->fetchAll();
         const contratoInquilino = document.getElementById('contrato-inquilino');
         const contratoFechaInicio = document.getElementById('contrato-fecha-inicio');
         const contratoFechaFin = document.getElementById('contrato-fecha-fin');
-        const contratoTipo = document.getElementById('contrato-tipo');
         const contratoPrecio = document.getElementById('contrato-precio');
         const contratoFianza = document.getElementById('contrato-fianza');
 
@@ -359,7 +354,6 @@ $inquilinos = $stmtInquilinos->fetchAll();
             contratoInquilino.value = '';
             contratoFechaInicio.value = '';
             contratoFechaFin.value = '';
-            contratoTipo.value = 'estandar';
             contratoPrecio.value = '';
             contratoFianza.value = '';
             modalContrato.classList.add('activo');
@@ -388,7 +382,6 @@ $inquilinos = $stmtInquilinos->fetchAll();
                 contratoInquilino.value = btn.dataset.inquilino_id;
                 contratoFechaInicio.value = btn.dataset.fecha_inicio;
                 contratoFechaFin.value = btn.dataset.fecha_fin;
-                contratoTipo.value = btn.dataset.tipo_contrato;
                 contratoPrecio.value = btn.dataset.precio_mensual;
                 contratoFianza.value = btn.dataset.fianza;
                 modalContrato.classList.add('activo');
@@ -406,6 +399,21 @@ $inquilinos = $stmtInquilinos->fetchAll();
                     if (data.success && data.precio > 0) {
                         contratoPrecio.value = data.precio;
                         contratoFianza.value = Math.round(data.precio / 2);
+                    }
+                });
+        });
+
+        // Autocompletar habitación al seleccionar inquilino
+        contratoInquilino.addEventListener('change', () => {
+            const inquilinoId = contratoInquilino.value;
+            if (!inquilinoId) return;
+            fetch('api/habitaciones.php?accion=habitacion_por_inquilino&inquilino_id=' + inquilinoId)
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success && data.habitacion_id) {
+                        contratoHabitacion.value = data.habitacion_id;
+                        // Dispara el change para autocompletar precio y fianza también
+                        contratoHabitacion.dispatchEvent(new Event('change'));
                     }
                 });
         });
